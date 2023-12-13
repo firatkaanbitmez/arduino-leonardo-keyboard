@@ -1,0 +1,136 @@
+#include <Keyboard.h>
+
+int durum = 0;
+
+int start = 0;
+
+void setup()
+
+{
+
+    Serial.begin(9600); //Seri iletişim portu hızı
+
+    Keyboard.begin(); //Klavye modülünü başlat
+
+}
+
+
+
+void loop()
+
+{
+
+    // Caps Lock tuşunun durumunu oku
+
+    if (bitRead(Keyboard.read(), 1) == 1)
+
+    {
+
+      
+
+       start= 1;
+
+    }
+
+    else
+
+    {
+
+      
+
+        start = 0;
+
+    }
+
+
+
+    // Num Lock tuşunun durumunu oku
+
+    if (bitRead(Keyboard.read(), 2) == 1)
+
+    {
+
+        durum= 1;
+
+    }
+
+    else
+
+    {
+
+        durum= 2;
+
+    }
+
+    if (durum == '1' & start=='1')
+
+    {
+
+        Keyboard.press('r');
+
+        delay(100);
+
+        Keyboard.releaseAll();
+
+        delay(100);
+
+        Keyboard.press('r');
+
+        delay(100);
+
+        Keyboard.releaseAll();
+
+        delay(100);
+
+        Keyboard.press('r');
+
+        delay(100);
+
+        Keyboard.releaseAll();
+
+        delay(100);
+
+        Keyboard.press('8');
+
+        delay(250);
+
+      Keyboard.releaseAll();
+}
+
+    if (durum == '2' & start == '1')
+
+    {
+
+        Keyboard.press('6');
+
+        delay(350);
+
+        Keyboard.releaseAll();
+
+        delay(150);
+
+        Keyboard.press('w');
+
+        delay(50);
+
+        Keyboard.releaseAll();
+
+        delay(50);
+
+        Keyboard.press('7');
+
+        delay(350);
+
+        Keyboard.releaseAll();
+
+        delay(150);
+
+        Keyboard.press('w');
+
+        delay(50);
+
+        Keyboard.releaseAll();
+
+        delay(50);
+  }
+}
